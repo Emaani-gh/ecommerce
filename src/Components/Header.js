@@ -39,8 +39,10 @@ function Header() {
             Categories
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a className="dropdown-item" href="#">Men's Wear</a></li>
-            <li><a className="dropdown-item" href="#">women's Wear</a></li>
+            <li><Link to={`/category/men's clothing `} className="dropdown-item">Men's Wear</Link></li>
+            <li><Link to={"/category/women's clothing"} className="dropdown-item">women's Wear</Link></li>
+            <li><Link to={"/category/jewelery"} className="dropdown-item">Jewelery</Link></li>
+            <li><Link to={"/category/electronics"} className="dropdown-item">Electronics</Link></li>
           </ul>
         </li>
         

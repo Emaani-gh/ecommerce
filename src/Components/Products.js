@@ -1,11 +1,25 @@
-import React, { useContext } from 'react'
-import { Context } from './Context';
+import React, { useContext,useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 const Products = ()=> {
-const products = useContext(Context) 
+// const products = useContext(Context) 
+   const [products,setProducts] = useState([])
   const featuredProducts = products.slice(0,8)
- 
+
+
+
+
+  const fetchProducts = (categ)=>{
+    fetch(`https://fakestoreapi.com/${categ}`)
+      .then(res=>res.json())
+      .then(data=>setProducts(data))
+  }
+
+  useEffect(()=>{
+    fetchProducts('products')
+  }, []
+  )
+//  console.log(products)
 
   return (
   

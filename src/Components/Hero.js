@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import img from './home-shoe-2.png'
 
 const Hero =()=> {
@@ -14,7 +15,7 @@ const Hero =()=> {
             <div className='align-self-center mt-4 pe-sm-4'>
                 <h1 className="display-2 fw-bold "> Nike Foot </h1>
                 <p className="lead"> Break Barries, Set Record and Change the Game </p>
-               <a className="btn btn-primary btn-lg" href="#" role="button"> Add To Cart</a>
+               <Link to={'#'} className="btn btn-primary btn-lg" role="button"> Add To Cart</Link>
             </div>
         </div>
     </div>

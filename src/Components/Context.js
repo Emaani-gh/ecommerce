@@ -6,24 +6,12 @@ export const Consumer = Context.Consumer
 
 
 export const Provider = (props)=> {
-  const [products,setProducts] = useState([])
-
-
-  const fetchProducts = (categ)=>{
-    fetch(`https://fakestoreapi.com/${categ}`)
-      .then(res=>res.json())
-      .then(data=>setProducts(data))
-  }
-
-  useEffect(()=>{
-    fetchProducts('products')
-  }, []
-  )
+  
   
   
 
   return (
-    <Context.Provider value={products} >
+    <Context.Provider  >
         
         {props.children}
     </Context.Provider>

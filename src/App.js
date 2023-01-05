@@ -7,7 +7,9 @@ import SignUp from './Components/SignUp';
 import { ProductDetails } from './Components/ProductDetails';
 import Hero from './Components/Hero';
 import { Context } from './Components/Context';
-
+import Category from './Components/Category';
+import Testing from './Components/Testing';
+ 
 
 
 function App() {
@@ -17,12 +19,14 @@ function App() {
 
       <div className="App">
         <Header />
-        <Routes>
-        
-          <Route path='/' element={<Home />} />
+        <Routes>        
+          <Route path='/' element ={<Home />} />                    
+          <Route path='/products/:id' element={ <ProductDetails />} />          
+          <Route path='/category/:category' element={ <Category />} />          
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/products/:id' element={ <ProductDetails />} />
+          <Route path='testing' element={<Testing />} />
+
         </Routes>
       </div>
     </BrowserRouter>
