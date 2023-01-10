@@ -30,7 +30,15 @@ a{
   gap: 1rem;
   scroll-snap-align: start;
   margin-bottom: 1.5rem;
+  border: none;
 }
+.product > input[type='checkbox'],.cardd > input[type = 'checkbox']{
+  /* align-self: flex-end; */
+  /* min-width: 15px ;
+  min-height: 15px;
+  margin-bottom: .3rem; */
+}
+
 .product img{
   aspect-ratio: 5 / 6;
   object-fit: cover;

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { FaUserCircle,FaCartArrowDown } from 'react-icons/fa';
+import Context from './Context';
 
 function Header() {
+
+  const {cart} = useContext(Context).state
+  let numOfItems = cart.length
+
   return (
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
@@ -12,7 +17,7 @@ function Header() {
 
       <div className="">
         <Link className=" pe-3 text-dark fs-5" to="/sign-in"> <span className='text-primary fs-4'>sign in</span> <FaUserCircle /></Link>
-        <a className=" pe-3 text-dark fs-5" href="#"><FaCartArrowDown/></a>
+        <Link to={'./cart'} className=" pe-3 text-dark fs-5" href="#"><FaCartArrowDown/>{numOfItems}</Link>
       </div>
 
       <button className="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
