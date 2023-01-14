@@ -3,7 +3,7 @@ import Context from './Context'
 
 export const Cart = () => {
 
-    const {cart} = useContext(Context).state
+  const {cart} = useContext(Context).state
     
 
   return (

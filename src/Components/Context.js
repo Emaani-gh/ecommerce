@@ -3,14 +3,12 @@ import React, { useEffect,useState } from 'react'
 export const Context = React.createContext();
 export const Consumer = Context.Consumer
 
-
-
 export const Provider = (props)=> {
   
   const [cart,setCart] = useState([])
   const [currproduct,setCurrProduct] = useState({})
-  const [checkedProducts,setCheckedProducts] = useState([])
   const [products,setProducts] = useState([])
+
 
   useEffect(()=>{
     fetchProducts('products')
@@ -24,9 +22,12 @@ export const Provider = (props)=> {
   
 
   const addToCart = (product)=>{
-    const is = cart.some(ele=>ele.id==product.id)
-    if(is == false){
+    const isFound = cart.find(ele=>ele.id==product.id);
+    if(!isFound){
       setCart(prev=>[...prev,product])
+    }
+    else{
+      console.log(product.id + "already added")
     }
   }
 
@@ -36,24 +37,33 @@ export const Provider = (props)=> {
   
   const handleCheck = (e)=>{
     let value = e.target.value
-    const is = checkedProducts.includes(value)
+    const is = products.find(prd=>prd.id == value)
     let checked = e.target.checked
     
-    if(checked && !is){
-      setCheckedProducts(prev=>[...prev,value])
-    }
-    else if (checked == false && is == true){
-      let index = checkedProducts.indexOf(value)
-      checkedProducts.splice(index,1)
-      setCheckedProducts(prev=> prev.filter(val=>val != value))
-    }
+      setProducts(current =>
+        current.map(obj => {
+          if (obj.id == value) {
+            return {...obj, checked: e.target.checked};
+          }
+
+          return obj;
+        }),
+      );
   }
   
   const handleAddSelectedToCart = ()=>{
-    checkedProducts.forEach((prd)=>{
-      const selectedPrd=products.find((ele)=>ele.id == prd)
-      addToCart(selectedPrd)
-    })
+    
+    let prds = products.filter(ele=>ele.checked == true)
+    prds.forEach(prd=>addToCart(prd))
+    setProducts(current =>
+      current.map(obj => {
+        if (obj.checked == true) {
+          return {...obj, checked: false};
+        }
+
+        return obj;
+      }),
+    );
   }
 
   const value ={
@@ -68,7 +78,6 @@ export const Provider = (props)=> {
       products,
       cart,
       currproduct,
-      checkedProducts
     }
     
     

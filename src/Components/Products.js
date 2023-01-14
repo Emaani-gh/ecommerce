@@ -18,8 +18,8 @@ const Products = ()=> {
         {/* ------------start of Featured products----------- */}
         <div className='featured-section my-3 py-sm-4 my-sm-5'>
           {
-            context.state.checkedProducts.length > 0
-            ?<div className='btn btn-primary position-fixed' onClick={context.actions.handleAddSelectedToCart} >Add All to Cart</div>
+            context.state.products.find(ele=>ele.checked == true)
+            ?<div className='btn btn-success position-fixed' onClick={context.actions.handleAddSelectedToCart} >Add All to Cart</div>
             :""
           }
           
@@ -34,11 +34,11 @@ const Products = ()=> {
               
            return(
             <div key={id} className=' product p-sm-0 mb-sm-0 shadow  mb-5 bg-body rounded'>
-              <input type={'checkbox'} value={id} className='align-self-end' onChange={(e)=>context.actions.handleCheck(e)} /> 
+              <input type={'checkbox'} value={id} className='mx-2 my-2 align-self-end' checked={product.checked || false} onChange={(e)=>context.actions.handleCheck(e)} /> 
               <div className='d-flex flex-column px-2'  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>context.actions.showProduct(product)}>
                 
                 <div className=''>
-                  <img className='w-100' src={product.image}/>
+                  <img className=' w-100' src={product.image}/>
                 </div>
                 
                 <div className='desc' >
@@ -78,7 +78,7 @@ const Products = ()=> {
                 context.state.products.map((product,index)=>(
                   <div key={product.id} className='col-sm-4 col-lg-3 col-xxl-2 mb-5 btn p-2'>  
                     <div type='button' className=' cardd h-100 border p-3 shadow d-flex flex-column' >
-                      <input type={'checkbox'} className='align-self-end' value={product.id} onChange={(e)=>context.actions.handleCheck(e)}/>
+                      <input type={'checkbox'} className='mb-4 align-self-end' value={product.id} checked={product.checked || false} onChange={(e)=>context.actions.handleCheck(e)}/>
                       <div className='d-flex flex-column align-items-center' data-bs-toggle="modal" onClick={()=>context.actions.showProduct(product)} data-bs-target="#exampleModal">
                         
                         <img className='w-100 ' src={product.image}/>
