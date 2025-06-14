@@ -34,6 +34,11 @@ A simple project intended to help learn how front end websites interact with API
 
 ## SCREENSHOTS
 
-![front page](public/img/image.png)
-![front page](public/img/image2.png)
-![front page](public/img/image3.png)
+- hero
+  ![front page](public/img/image.png)
+
+- products listing
+  ![front page](public/img/image2.png)
+
+- cart
+  ![front page](public/img/image3.png)
