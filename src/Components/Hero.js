@@ -13,8 +13,8 @@ const Hero =()=> {
             </div>
 
             <div className='align-self-center mt-4 pe-sm-4'>
-                <h1 className="display-2 fw-bold "> Nike Foot </h1>
-                <p className="lead"> Break Barries, Set Record and Change the Game </p>
+                <h1 className="display-2 fw-bold "> Like Foot </h1>
+                <p className="lead"> Break Barriers, Set Record and Change the Game </p>
                <Link to={'#'} className="btn btn-primary btn-lg" role="button"> Add To Cart</Link>
             </div>
         </div>
